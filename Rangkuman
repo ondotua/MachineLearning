@@ -446,3 +446,63 @@ Untuk data non-linear → gunakan **kernel**:
 - `StandardScaler`
 - `LinearSVC`, `SVC`, `LinearSVR`, `SVR`
 
+# 📚 Chapter 6 - Decision Trees
+
+## 📝 Ringkasan
+
+**Decision Tree** adalah salah satu algoritma Machine Learning yang serbaguna, dapat digunakan untuk **klasifikasi**, **regresi**, dan **multioutput tasks**.
+
+---
+
+## 🔸 Inti Konsep
+- Membangun model berbentuk pohon keputusan yang membagi data berdasarkan fitur dan nilai threshold.
+- **Tujuan utama:** Memisahkan data agar subset yang terbentuk **semakin "murni"** (homogen).
+- Algoritma yang digunakan oleh Scikit-Learn → **CART (Classification and Regression Tree)**
+
+---
+
+## ⚙️ Impurity Measures
+- **Gini Impurity (default)**
+- **Entropy (Information Gain)**
+
+Keduanya menghasilkan hasil yang hampir sama. Gini biasanya lebih cepat.
+
+---
+
+## 🔧 Regularisasi untuk Cegah Overfitting
+| Hyperparameter         | Fungsi                                    |
+|------------------------|-------------------------------------------|
+| `max_depth`            | Membatasi kedalaman tree                 |
+| `min_samples_split`    | Minimal jumlah sample untuk split node  |
+| `min_samples_leaf`     | Minimal jumlah sample di setiap leaf    |
+| `max_leaf_nodes`       | Batas maksimal jumlah leaf              |
+
+---
+
+## 🔸 Kelebihan Decision Tree
+- ✅ Mudah dipahami (**White-box model**)
+- ✅ Tidak memerlukan feature scaling
+- ✅ Cocok untuk data yang memiliki relasi non-linear
+- ✅ Mendukung klasifikasi & regresi
+
+---
+
+## ⚠️ Kekurangan Decision Tree
+- ❗ **Overfitting** jika tidak diregulasi
+- ❗ **Sensitif terhadap perubahan data**
+- ❗ Decision boundary selalu tegak lurus terhadap axis (orthogonal)
+
+---
+
+## 📦 Tools yang Digunakan
+- `scikit-learn`
+  - `DecisionTreeClassifier`
+  - `DecisionTreeRegressor`
+  - `GridSearchCV`
+  - `export_graphviz` (untuk visualisasi)
+
+---
+
+## ⚡ Lanjutan
+Untuk mengatasi kelemahan Decision Trees (seperti overfitting & sensitivitas data), gunakan **Random Forest** atau **ensemble methods** → akan dibahas pada **Chapter 7**.
+
