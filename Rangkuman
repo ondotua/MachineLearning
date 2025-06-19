@@ -372,3 +372,77 @@ Menggunakan fungsi softmax → hasilkan probabilitas untuk masing-masing kelas
 Bias tinggi → underfitting, Variance tinggi → overfitting
 
 Tujuan training: cari keseimbangan bias-variance agar model generalisasi dengan baik
+
+# 📚 Chapter 5 - Support Vector Machines (SVM)
+
+## 📝 Ringkasan
+
+**Support Vector Machine (SVM)** adalah algoritma Machine Learning yang digunakan untuk:
+- ✅ Klasifikasi Linear
+- ✅ Klasifikasi Non-Linear
+- ✅ Regresi
+- ✅ Deteksi Outlier
+
+### 🔧 Inti Konsep
+SVM mencari **garis batas (hyperplane)** dengan **margin selebar mungkin** untuk memisahkan kelas. Titik-titik terdekat dari hyperplane disebut **Support Vectors**, karena posisi hyperplane ditentukan oleh titik-titik ini.
+
+---
+
+## 🔸 Linear SVM
+- **Hard Margin SVM** → tanpa pelanggaran margin → sensitif terhadap outlier.
+- **Soft Margin SVM** → kompromi antara margin besar & kesalahan → lebih fleksibel.
+
+**Hyperparameter penting:**
+- `C` → Mengontrol trade-off antara margin besar & pelanggaran margin.
+  - C kecil → generalisasi lebih baik (toleransi lebih terhadap kesalahan)
+  - C besar → lebih ketat → berisiko overfitting
+
+---
+
+## 🔸 Nonlinear SVM & Kernel Trick
+Untuk data non-linear → gunakan **kernel**:
+
+| Kernel       | Keterangan                          |
+| ------------ | ----------------------------------- |
+| Linear       | Cocok untuk data linear             |
+| Polynomial   | Memodelkan interaksi non-linear     |
+| RBF (Gaussian) | Fleksibel, cocok untuk sebagian besar kasus |
+
+**Hyperparameters:**
+- `C` → regularisasi
+- `gamma (γ)` → seberapa jauh pengaruh 1 data terhadap model
+  - Gamma kecil → boundary halus
+  - Gamma besar → boundary mengikuti noise → overfitting
+
+---
+
+## 🔸 SVM for Regression (SVR)
+- **LinearSVR** → regresi linear
+- **SVR dengan kernel** → untuk regresi non-linear
+
+**Hyperparameters:**
+- `C` → regularisasi
+- `epsilon (ε)` → toleransi margin → error ≤ ε tidak dihitung sebagai kesalahan
+
+---
+
+## ⚖️ Bias-Variance Trade-off
+| Bias Tinggi (Underfitting) | Variance Tinggi (Overfitting) |
+| -------------------------- | ----------------------------- |
+| C kecil, gamma kecil       | C besar, gamma besar          |
+
+---
+
+## ✅ Kapan Menggunakan SVM?
+- Gunakan **Linear SVM** → dataset besar & hampir linear.
+- Gunakan **RBF Kernel SVM** → dataset kecil-menengah & non-linear.
+- **Scaling fitur sangat penting.**
+- Gunakan **GridSearchCV** untuk menemukan nilai `C` dan `gamma` terbaik.
+
+---
+
+## 📦 Tools yang Digunakan
+- `scikit-learn`
+- `StandardScaler`
+- `LinearSVC`, `SVC`, `LinearSVR`, `SVR`
+
