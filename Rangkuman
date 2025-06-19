@@ -2,16 +2,6 @@
 
 > Rangkuman Bab 1: Konsep Dasar dan Fondasi Machine Learning
 
-## 📚 Daftar Isi
-
-- [Definisi Machine Learning](#definisi-machine-learning)
-- [Mengapa Menggunakan Machine Learning?](#mengapa-menggunakan-machine-learning)
-- [Contoh Aplikasi ML](#contoh-aplikasi-ml)
-- [Jenis-Jenis Sistem Machine Learning](#jenis-jenis-sistem-machine-learning)
-- [Tantangan Utama Machine Learning](#tantangan-utama-machine-learning)
-- [Evaluasi dan Testing](#evaluasi-dan-testing)
-- [Workflow Typical ML Project](#workflow-typical-ml-project)
-
 ## 🤖 Definisi Machine Learning
 
 Machine Learning adalah ilmu (dan seni) untuk memprogram komputer agar dapat **belajar dari data**. Berbeda dengan programming tradisional yang menggunakan aturan eksplisit, ML memungkinkan sistem untuk meningkatkan performanya berdasarkan pengalaman.
@@ -243,4 +233,84 @@ Jika Anda ingin berkontribusi pada rangkuman ini, silakan buat pull request atau
 
 ## 📄 License
 
-This summary is for educational purposes only.
+This summary is for educational purposes only. 
+
+# 📘 Rangkuman Chapter 2: Proyek Machine Learning End-to-End
+
+Chapter ini membahas tahapan membangun proyek Machine Learning secara lengkap, dari awal hingga tahap siap untuk pelatihan model. Studi kasusnya adalah prediksi harga rumah di California berdasarkan data sensus tahun 1990.
+
+---
+
+## 🎯 Tujuan Proyek
+- Memprediksi **median house value** dari suatu distrik.
+- Menggunakan fitur seperti: `median_income`, `housing_median_age`, `population`, `total_rooms`, dll.
+
+---
+
+## 🧭 Alur Proyek
+
+### 1. **Framing Masalah**
+- **Jenis ML:** Supervised Learning  
+- **Tipe Masalah:** Regression  
+- **Output:** Satu nilai numerik → univariate regression  
+- **Mode:** Batch Learning  
+
+### 2. **Ambil & Load Data**
+- Dataset diunduh dari GitHub: `housing.tgz`
+- File utama: `housing.csv` dimuat ke `pandas.DataFrame`
+
+### 3. **Buat Test Set**
+- Tujuan: Menghindari *data leakage* & overfitting
+- Gunakan **Stratified Sampling** berdasarkan `median_income` kategori
+- Tools: `StratifiedShuffleSplit` dari `scikit-learn`
+
+---
+
+## 🔍 Eksplorasi & Visualisasi Data
+- Gunakan `.info()`, `.describe()`, dan `.hist()` untuk memahami distribusi data
+- Visualisasi geografis menggunakan scatter plot:
+  - `x=longitude`, `y=latitude`, `c=price`, `s=population`
+- Analisis korelasi dengan `.corr()` dan `scatter_matrix()`
+- Tambahkan fitur baru:
+  - `rooms_per_household`
+  - `bedrooms_per_room`
+  - `population_per_household`
+
+---
+
+## ⚙️ Persiapan Data
+
+### Data Numerik:
+- Tangani missing values dengan `SimpleImputer(strategy="median")`
+- Standarisasi dengan `StandardScaler`
+- Buat `Pipeline` untuk menyusun semua langkah preprocessing
+
+### Data Kategorikal:
+- Encode teks (e.g., `ocean_proximity`) dengan:
+  - `OrdinalEncoder` (jika urutan penting)
+  - `OneHotEncoder` (default aman untuk kategori tak berurutan)
+
+### Pipeline Gabungan:
+- Gunakan `ColumnTransformer` untuk menggabungkan numerik & kategorikal
+- Hasil akhir: `housing_prepared` siap masuk ke model ML
+
+---
+
+## 🧠 Prinsip Desain Scikit-Learn
+- Semua estimator punya `fit()`
+- Transformers punya `transform()` dan `fit_transform()`
+- Predictors punya `predict()` dan `score()`
+- Hyperparameter dan hasil pelatihan bisa diakses dengan mudah
+
+---
+
+## ✅ Kesimpulan
+
+> Chapter ini memberi kerangka lengkap untuk membangun sistem Machine Learning yang rapi, modular, dan mudah direproduksi.
+
+Tahapan berikutnya (di Chapter 3+):
+- Melatih model (LinearRegression, DecisionTree, dll)
+- Evaluasi performa
+- Tuning hyperparameter
+- Deployment model ke produksi
+
