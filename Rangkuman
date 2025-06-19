@@ -591,3 +591,79 @@ Untuk mengatasi kelemahan Decision Trees (seperti overfitting & sensitivitas dat
   - `AdaBoostClassifier`
   - `GradientBoostingRegressor`
 
+# 📚 Chapter 8 - Dimensionality Reduction
+
+## 📝 Ringkasan
+
+**Dimensionality Reduction** adalah proses mengurangi jumlah fitur input dalam dataset tanpa kehilangan informasi penting secara signifikan.
+
+**Tujuan utama:**
+- ✅ Mengurangi overfitting
+- ✅ Mempercepat komputasi
+- ✅ Memudahkan visualisasi data
+
+---
+
+## 🔸 Teknik-Teknik Utama
+
+| Teknik        | Keterangan                                    |
+| ------------- | --------------------------------------------- |
+| **PCA**       | Linear, mencari sumbu baru dengan variansi terbesar |
+| **Incremental PCA** | PCA untuk dataset besar → diproses per batch       |
+| **Kernel PCA** | Non-linear → transformasi data melengkung dengan kernel trick |
+| **LLE**       | Non-linear, mempertahankan hubungan lokal antar titik |
+| **t-SNE**     | Khusus untuk **visualisasi** → tidak cocok untuk prediksi |
+
+---
+
+## ⚙️ Principal Component Analysis (PCA)
+- Menemukan **principal components** → sumbu baru → proyeksi data ke dimensi lebih rendah.
+- **`n_components=0.95`** → mempertahankan 95% variansi.
+- `svd_solver="randomized"` → mempercepat proses PCA untuk dataset besar.
+
+---
+
+## ⚙️ Incremental PCA
+- Cocok untuk **dataset besar** → data diproses bertahap/batch.
+- Bisa digunakan saat data tidak muat di memori.
+
+---
+
+## ⚙️ Kernel PCA
+- Untuk **reduksi dimensi non-linear** → cocok jika data membentuk pola melengkung.
+- Bisa dikombinasikan dengan **GridSearchCV** untuk optimasi parameter kernel.
+
+---
+
+## ⚙️ Locally Linear Embedding (LLE)
+- Preserves **local neighborhood** → cocok untuk data manifold (melengkung).
+- Berguna untuk visualisasi atau reduksi dimensi sebelum digunakan model lain.
+
+---
+
+## ⚙️ t-SNE (Visualisasi)
+- Visualisasi dataset non-linear → membantu eksplorasi data.
+- Cocok untuk dataset **kecil-menengah**.
+- **Bukan untuk digunakan dalam prediksi.**
+
+---
+
+## ✅ Kesimpulan
+| Teknik           | Kapan Digunakan                     |
+| ---------------- | ----------------------------------- |
+| **PCA**          | Reduksi linier → dataset tabular    |
+| **Incremental PCA** | Dataset besar (tidak muat di RAM)  |
+| **Kernel PCA**   | Data non-linear → prediksi lanjut   |
+| **LLE**          | Visualisasi data melengkung         |
+| **t-SNE**        | Visualisasi eksploratif data        |
+
+---
+
+## 📦 Tools yang Digunakan
+- `scikit-learn`
+  - `PCA`
+  - `IncrementalPCA`
+  - `KernelPCA`
+  - `LocallyLinearEmbedding`
+  - `TSNE`
+
