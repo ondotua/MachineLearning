@@ -314,3 +314,61 @@ Tahapan berikutnya (di Chapter 3+):
 - Tuning hyperparameter
 - Deployment model ke produksi
 
+📌 Rangkuman Singkat Chapter 4 - Training Models
+1️⃣ Linear Regression
+
+Model untuk memprediksi nilai kontinu menggunakan fungsi linier dari fitur.
+
+Dua metode training:
+
+Normal Equation (langsung, cepat untuk fitur sedikit)
+
+Gradient Descent (iteratif, cocok untuk data besar)
+
+2️⃣ Gradient Descent
+
+Ada 3 jenis:
+
+Batch GD → semua data tiap langkah
+
+Stochastic GD (SGD) → 1 data tiap langkah → cepat, tapi acak
+
+Mini-batch GD → sebagian data → kompromi antara kecepatan dan stabilitas
+
+3️⃣ Polynomial Regression
+
+Linear Regression + fitur pangkat → cocok untuk data non-linear
+
+Risiko overfitting → perlu evaluasi & regularisasi
+
+4️⃣ Regularisasi
+
+Ridge (L2) → mengecilkan semua koefisien
+
+Lasso (L1) → bisa membuat beberapa koefisien = 0 → feature selection
+
+ElasticNet → gabungan Ridge + Lasso
+
+5️⃣ Learning Curves
+
+Membantu mendeteksi underfitting (bias tinggi) atau overfitting (variance tinggi)
+
+6️⃣ Early Stopping
+
+Menghentikan training lebih awal untuk mencegah overfitting (pada GD)
+
+7️⃣ Logistic Regression
+
+Untuk klasifikasi biner, memprediksi probabilitas kelas → menggunakan fungsi sigmoid
+
+8️⃣ Softmax Regression
+
+Generalisasi Logistic Regression untuk klasifikasi multi-kelas
+
+Menggunakan fungsi softmax → hasilkan probabilitas untuk masing-masing kelas
+
+9️⃣ Bias-Variance Trade-off
+
+Bias tinggi → underfitting, Variance tinggi → overfitting
+
+Tujuan training: cari keseimbangan bias-variance agar model generalisasi dengan baik
