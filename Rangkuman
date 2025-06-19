@@ -506,3 +506,88 @@ Keduanya menghasilkan hasil yang hampir sama. Gini biasanya lebih cepat.
 ## ⚡ Lanjutan
 Untuk mengatasi kelemahan Decision Trees (seperti overfitting & sensitivitas data), gunakan **Random Forest** atau **ensemble methods** → akan dibahas pada **Chapter 7**.
 
+# 📚 Chapter 7 - Ensemble Learning and Random Forests
+
+## 📝 Ringkasan
+
+**Ensemble Learning** adalah metode untuk meningkatkan performa model dengan cara menggabungkan beberapa model (*predictor*) menjadi satu.
+
+---
+
+## 🔸 Jenis-jenis Ensemble
+
+| Metode         | Ciri                                           |
+| -------------- | --------------------------------------------- |
+| **Voting**     | Menggabungkan hasil beberapa model klasifikasi |
+| **Bagging**    | Melatih beberapa model pada *subset* data berbeda |
+| **Random Forest** | Ensemble of Decision Trees + Bagging + Random Features |
+| **Extra-Trees** | Decision Trees lebih random → lebih cepat    |
+| **Boosting**   | Melatih model *berurutan*, tiap model memperbaiki kesalahan model sebelumnya |
+| **Stacking**   | Menggunakan model meta (blender) → hasil lebih akurat |
+
+---
+
+## ⚙️ Voting Classifier
+- **Hard Voting:** mayoritas suara → prediksi
+- **Soft Voting:** rata-rata probabilitas → **lebih akurat**
+
+---
+
+## ⚙️ Bagging & Out-of-Bag (OOB)
+- **Bagging** → mengurangi variansi → cocok untuk Decision Tree.
+- **Out-of-Bag Evaluation (OOB):** otomatis evaluasi tanpa validation set tambahan.
+
+---
+
+## ⚙️ Random Forest
+- Random Forest = Bagging + Random Features
+- Lebih stabil, akurat, dan cocok untuk data tabular
+- Mendukung **feature_importances_** untuk seleksi fitur
+
+---
+
+## ⚙️ Extra-Trees
+- Lebih acak dibanding Random Forest
+- Training lebih cepat → kadang performa lebih baik
+
+---
+
+## ⚙️ Boosting
+| Metode       | Ciri                                              |
+| ------------ | ------------------------------------------------- |
+| **AdaBoost** | Memberi bobot lebih besar untuk instance yang salah prediksi |
+| **Gradient Boosting** | Melatih model untuk memprediksi *residual errors* → presisi tinggi |
+
+---
+
+## ⚙️ XGBoost
+- Implementasi Gradient Boosting yang lebih cepat & optimal
+- Mendukung **early stopping** otomatis
+
+---
+
+## ⚙️ Stacking
+- Membuat model **meta/blender** untuk menggabungkan output beberapa model → performa lebih baik dibanding voting biasa.
+
+---
+
+## ✅ Kapan Menggunakan
+| Metode         | Kapan Digunakan                                 |
+| -------------- | ----------------------------------------------- |
+| **Voting**     | Gabungkan model berbeda → *klasifikasi*        |
+| **Bagging**    | Untuk model yang rawan overfitting              |
+| **Random Forest** | Rekomendasi default untuk data tabular        |
+| **Boosting**   | Saat butuh performa tinggi → rawan overfitting |
+| **Stacking**   | Untuk hasil terbaik → biasanya dipakai di lomba |
+
+---
+
+## 📦 Tools yang Digunakan
+- `scikit-learn`
+  - `VotingClassifier`
+  - `BaggingClassifier`
+  - `RandomForestClassifier`
+  - `ExtraTreesClassifier`
+  - `AdaBoostClassifier`
+  - `GradientBoostingRegressor`
+
