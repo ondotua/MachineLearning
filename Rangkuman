@@ -25,7 +25,8 @@ Machine Learning adalah ilmu (dan seni) untuk memprogram komputer agar dapat **b
 ### Keunggulan ML
 - ✅ **Otomatis beradaptasi** dengan pola baru dalam data
 - ✅ **Lebih sederhana** daripada menulis ribuan aturan manual
-- ✅ **Dapat menangani masalah kompleks** seperti speech recognition
+- ✅ **Dapat menangani masalah kompleks** seperti speech recognition 
+
 - ✅ **Membantu manusia belajar** dengan mengungkap pola tersembunyi (data mining)
 
 ### ML Sangat Baik Untuk
@@ -801,3 +802,80 @@ ANN dengan **satu atau lebih hidden layers** → mampu memodelkan **relasi non-l
   - `compile()`
   - `fit()`
   - `evaluate()`
+
+## 🔸 Chapter 10 - Introduction to Artificial Neural Networks with Keras
+- Pengenalan neural networks.
+- Struktur dasar: Input → Hidden Layers → Output.
+- Penggunaan **Keras API** untuk membangun, melatih, dan evaluasi ANN sederhana.
+- Dataset: Fashion MNIST → contoh klasifikasi gambar.
+
+---
+
+## 🔸 Chapter 11 - Training Deep Neural Networks
+- Masalah umum: **vanishing/exploding gradients**.
+- Solusi: **He initialization, ELU activation, Batch Normalization, Gradient Clipping**.
+- Penggunaan **optimizer modern**: Adam, Nadam.
+- **Transfer learning** → gunakan model pretrained untuk mempercepat training.
+
+---
+
+## 🔸 Chapter 12 - Custom Models and Training with TensorFlow
+- Penggunaan TensorFlow low-level API.
+- Membuat **custom loss, metrics, layers, dan models**.
+- Implementasi **custom training loop** dengan `tf.GradientTape()` untuk fleksibilitas penuh.
+
+---
+
+## 🔸 Chapter 13 - Loading and Preprocessing Data with TensorFlow
+- Pipeline data efisien dengan **tf.data API**.
+- Membaca dataset besar menggunakan **interleave()** dan **prefetch()**.
+- Konversi dataset ke **TFRecord** → format binary untuk skala besar.
+- **TensorFlow Datasets (TFDS)** → dataset siap pakai seperti MNIST, CIFAR.
+
+---
+
+## 🔸 Chapter 14 - Deep Computer Vision Using CNNs
+- Arsitektur CNN → untuk image processing.
+- Penggunaan pretrained models seperti **ResNet50, Xception**.
+- **Transfer Learning** → fine-tune pretrained model untuk dataset baru.
+- Teknik **data augmentation** → mencegah overfitting pada gambar.
+
+---
+
+## 🔸 Chapter 15 - Processing Sequences Using RNNs and CNNs
+- **RNN, LSTM, GRU** → untuk time series & NLP.
+- Bidirectional RNN → memproses urutan dua arah.
+- Alternatif: **1D CNN** → untuk sequence panjang → lebih efisien.
+- Dataset: IMDb Sentiment Analysis → klasifikasi teks.
+
+---
+
+## 🔸 Chapter 16 - NLP with RNNs and Attention
+- **Text generation** dengan RNN.
+- **Embedding layer** → representasi kata yang lebih baik.
+- Pengenalan awal **Attention Mechanism** → dasar menuju Transformer.
+- **Pretrained Embeddings** via TensorFlow Hub.
+
+---
+
+## 🔸 Chapter 17 - Representation Learning and Generative Models
+- **Autoencoders** → untuk compression dan denoising.
+- **Variational Autoencoders (VAE)** → probabilistic → mampu menghasilkan data baru.
+- **Generative Adversarial Networks (GANs)** → model generatif paling powerful untuk gambar → Generator vs Discriminator.
+
+---
+
+## 🔸 Chapter 18 - Reinforcement Learning
+- **Agen belajar melalui trial & error** → mendapatkan reward maksimal.
+- **Deep Q-Learning (DQN)** → gunakan neural network untuk mempelajari Q-function.
+- Teknik: **Replay Buffer, ε-greedy Policy**.
+- Pendahuluan ke **Policy Gradients dan Actor-Critic**.
+
+---
+
+## 🔸 Chapter 19 - Training and Deploying TensorFlow Models at Scale
+- Format model → **SavedModel, TFLite, TensorFlow.js**.
+- **TensorFlow Serving** → untuk deployment production via REST/gRPC API.
+- **Google Cloud AI Platform** → hosting model di cloud.
+- **TensorFlow Lite** → deployment ke mobile & IoT.
+- **TensorFlow.js** → deployment langsung ke browser.
