@@ -667,3 +667,63 @@ Untuk mengatasi kelemahan Decision Trees (seperti overfitting & sensitivitas dat
   - `LocallyLinearEmbedding`
   - `TSNE`
 
+# 📚 Chapter 9 - Unsupervised Learning Techniques
+
+## 📝 Ringkasan
+
+**Unsupervised Learning** = machine learning **tanpa label** → algoritma berusaha menemukan pola tersembunyi dalam data.
+
+---
+
+## 🔸 Teknik Clustering yang Dipelajari
+
+| Algoritma             | Keterangan                                      |
+| --------------------- | ----------------------------------------------- |
+| **K-Means**           | Membagi data ke dalam k cluster berdasarkan jarak |
+| **Mini-Batch K-Means** | Versi cepat K-Means → untuk dataset besar        |
+| **DBSCAN**            | Clustering berdasarkan kepadatan → deteksi outlier |
+| **Gaussian Mixture (GMM)** | Probabilistic clustering → cocok untuk overlapping clusters |
+| **Bayesian Gaussian Mixture** | Menentukan jumlah cluster secara otomatis       |
+
+---
+
+## ⚙️ Evaluasi Clustering
+- **Silhouette Score** → Menilai kualitas clustering → Semakin mendekati 1 → semakin baik.
+- Tidak ada *ground truth* → evaluasi bersifat eksploratif.
+
+---
+
+## ⚙️ Aplikasi
+- ✅ **Image Segmentation** → mengelompokkan warna dalam gambar.
+- ✅ **Preprocessing untuk supervised learning** → contoh: clustering sebelum klasifikasi.
+- ✅ **Anomaly Detection** → mendeteksi data aneh menggunakan Gaussian Mixture.
+
+---
+
+## ⚙️ Kelebihan & Kekurangan
+| Metode         | Kelebihan                            | Kekurangan                      |
+| -------------- | ------------------------------------ | ------------------------------- |
+| **K-Means**    | Cepat, sederhana                    | Tidak cocok untuk bentuk data kompleks |
+| **DBSCAN**     | Bisa mendeteksi outlier & bentuk bebas | Sulit menentukan parameter optimal |
+| **GMM**        | Probabilistik → fleksibel            | Lebih lambat, perlu tuning       |
+
+---
+
+## ✅ Kapan Digunakan?
+| Teknik                | Kapan Digunakan                           |
+| --------------------- | ----------------------------------------- |
+| **K-Means**           | Dataset kecil-menengah → cluster bulat   |
+| **Mini-Batch K-Means** | Dataset besar → ingin kecepatan          |
+| **DBSCAN**            | Data dengan bentuk kompleks + noise      |
+| **GMM**               | Overlapping clusters → probabilitas      |
+| **Bayesian GMM**      | Tidak tahu pasti jumlah cluster          |
+
+---
+
+## 📦 Tools yang Digunakan
+- `scikit-learn`
+  - `KMeans`
+  - `MiniBatchKMeans`
+  - `DBSCAN`
+  - `GaussianMixture`
+  - `BayesianGaussianMixture`
