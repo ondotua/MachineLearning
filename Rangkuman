@@ -727,3 +727,77 @@ Untuk mengatasi kelemahan Decision Trees (seperti overfitting & sensitivitas dat
   - `DBSCAN`
   - `GaussianMixture`
   - `BayesianGaussianMixture`
+
+# 📚 Chapter 10 - Artificial Neural Networks (ANNs)
+
+## 📝 Ringkasan
+
+Artificial Neural Networks (ANNs) adalah algoritma pembelajaran mesin yang terinspirasi dari struktur otak → digunakan untuk **klasifikasi**, **regresi**, dan berbagai tugas Machine Learning lainnya.
+
+---
+
+## 🔸 Struktur ANN
+| Komponen         | Fungsi                                       |
+| ---------------- | -------------------------------------------- |
+| **Neuron**       | Unit dasar → menghitung weighted sum + aktivasi |
+| **Input Layer**  | Menerima fitur dari data                     |
+| **Hidden Layers**| Menemukan pola → tempat ANN belajar          |
+| **Output Layer** | Menghasilkan prediksi                        |
+
+---
+
+## ⚙️ Multilayer Perceptron (MLP)
+ANN dengan **satu atau lebih hidden layers** → mampu memodelkan **relasi non-linear**.
+
+**Fungsi Aktivasi Umum:**
+| Activation | Digunakan untuk                 |
+| ---------- | ------------------------------ |
+| `relu`     | Hidden layers → cepat & stabil  |
+| `softmax`  | Output layer → klasifikasi multi-kelas |
+
+---
+
+## ⚙️ Cara Kerja ANN
+1. **Forward Propagation** → menghitung prediksi output
+2. **Loss Function** → menghitung error prediksi
+3. **Backpropagation** → menghitung gradient error
+4. **Gradient Descent** → update bobot agar error ↓
+
+---
+
+## ⚙️ Loss Function
+| Jenis                           | Kapan Digunakan               |
+| ------------------------------- | ----------------------------- |
+| `mean_squared_error (MSE)`      | Untuk **regresi**             |
+| `sparse_categorical_crossentropy` | Untuk **klasifikasi multi-kelas** |
+
+---
+
+## ⚙️ Optimizers
+| Optimizer | Ciri                                      |
+| --------- | ---------------------------------------- |
+| `SGD`     | Stochastic Gradient Descent → sederhana  |
+| `Adam`    | Lebih cepat konvergen → sering digunakan |
+
+---
+
+## ⚙️ Dataset Contoh
+- **Fashion MNIST** → klasifikasi gambar pakaian (10 kelas)
+- **California Housing** → regresi → prediksi harga rumah
+
+---
+
+## ✅ Kesimpulan
+- ✅ ANN dapat belajar relasi **linear** maupun **non-linear**
+- ✅ Keras API → mudah membangun model ANN
+- ❗ Perlu tuning parameter agar performa optimal
+
+---
+
+## 📦 Tools yang Digunakan
+- `tensorflow.keras`
+  - `Sequential`
+  - `Dense`
+  - `compile()`
+  - `fit()`
+  - `evaluate()`
